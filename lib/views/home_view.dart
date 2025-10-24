@@ -6,27 +6,33 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading: CircleAvatar(
-          radius: 18,
-          child: Icon(Icons.notifications_active_outlined, color: Colors.white),
+    return Stack(
+      children: [
+        Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            leading: CircleAvatar(
+              radius: 6,
+              child: Icon(
+                Icons.notifications_active_outlined,
+                size: 18,
+                color: Colors.white,
+              ),
+            ),
+            backgroundColor: Colors.blue,
+            title: Text(
+              'MediTrack',
+              style: TextStyle(color: Colors.white, fontSize: 15),
+            ),
+          ),
+          body: SafeArea(
+            child: Column(
+              children: [ListView.builder(itemBuilder: (context, index) {})],
+            ),
+          ),
         ),
-        backgroundColor: Colors.blue,
-        title: Text(
-          'MediTrack',
-          style: TextStyle(color: Colors.white, fontSize: 15),
-        ),
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            ProgressTile(),
-            ListView.builder(itemBuilder: (context, index) {}),
-          ],
-        ),
-      ),
+        Positioned(top: 26, right: 0, left: 0, child: ProgressTile()),
+      ],
     );
   }
 }

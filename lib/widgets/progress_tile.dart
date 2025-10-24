@@ -8,12 +8,13 @@ class ProgressTile extends StatefulWidget {
 }
 
 class _ProgressTileState extends State<ProgressTile> {
-  double progress = 0.0;
+  double progress = 0.4;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(15),
-      padding: EdgeInsets.all(15),
+      margin: EdgeInsets.all(8),
+      padding: EdgeInsets.all(8),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -21,8 +22,19 @@ class _ProgressTileState extends State<ProgressTile> {
       ),
       child: Column(
         children: [
-          Row(children: [Text("Today's Progress")]),
-          SizedBox(height: 10),
+          Row(
+            children: [
+              Text(
+                "Today's Progress",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 5),
           LinearProgressIndicator(
             value: progress,
             minHeight: 8,
